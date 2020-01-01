@@ -1,0 +1,114 @@
+﻿@model SLBApp.ViewModels.VendorInvoice
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>List of invoices</h3>
+<hr />
+
+<div class="form-group">
+   <form class="form-inline" asp-action="Index" asp-controller="Invoices">
+       <label>Enter URN</label>
+       <input type="text" name="searchString" class="form-control" placeholder="Search"/>
+       <input type="submit" value="Search" class="btn btn-primary" />
+   </form>
+
+</div>
+<hr />
+<p class="text-success">@TempData["success"]</p>
+<p class="text-danger">@TempData["Error"]</p>
+<div class="col-4">
+    <table class="table">
+
+        <tbody>
+            <tr>
+                <td>ID</td>
+                <td>@ViewBag.Id</td>
+            </tr>
+
+            <tr>
+                <td>Amount</td>
+                <td>@ViewBag.Amount</td>
+            </tr>
+
+            <tr>
+                <td>Title</td>
+                <td>@ViewBag.URN</td>
+            </tr>
+            <tr>
+                <td>Vendor</td>
+                <td>@ViewBag.Vendor</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>@ViewBag.Country</td>
+            </tr>
+
+            <tr>
+                <td>Currency</td>
+                <td>@ViewBag.Currency</td>
+            </tr>
+            <tr>
+                <td>Invoice Date</td>
+                <td>@ViewBag.InvoiceDate</td>
+            </tr>
+            <tr>
+                <td>Invoice No</td>
+                <td>@ViewBag.InvoiceNo</td>
+            </tr>
+
+            <tr>
+                <td>Priority</td>
+                <td>@ViewBag.Priority</td>
+            </tr>
+            <tr>
+                <td>Legal Entity</td>
+                <td>@ViewBag.LegalEntity</td>
+            </tr>
+
+
+
+            <tr>
+                <td></td>
+                <td>
+                    <form asp-action="UpdateList" asp-controller="Invoices" asp-route-id="@ViewBag.Id">
+                        <input type="submit" value="Update" class="btn btn-success btn-sm" />
+                    </form>
+                </td>
+            </tr>
+            @*@if (ViewBag.List != null)
+        {
+            foreach (var item in ViewBag.List)
+            {
+                <tr>
+                    <td>ID</td>
+                    <td>@item.Id</td>
+                </tr>
+
+                <tr>
+                    <td>Amount</td>
+                    <td>@item["Amount"]</td>
+                </tr>
+
+                <tr>
+                    <td>Title</td>
+                    <td>@item["Title"]</td>
+                </tr>
+                <tr>
+                    <td>Vendor</td>
+                    <td>@item["Vendor"]</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <form asp-action="UpdateList" asp-controller="Invoices" asp-route-id="@item.Id">
+                            <input type="submit" value="Update" class="btn btn-success btn-sm" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }*@
+
+        </tbody>
+    </table>
+</div>
